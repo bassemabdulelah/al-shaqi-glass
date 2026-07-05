@@ -1,6 +1,6 @@
 <?php
 // توليد عنوان الصفحة المحسن
-function generatePageTitle($title, $siteName = 'الشاقي للزجاج السكريت') {
+function generatePageTitle($title, $siteName = 'الماسة للزجاج السكريت') {
     return $title . ' | ' . $siteName;
 }
 

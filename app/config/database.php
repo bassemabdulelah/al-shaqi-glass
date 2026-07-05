@@ -1,13 +1,13 @@
 <?php
 return [
 
-'host' => 'sql103.infinityfree.com:3306',
+'host' => 'ssql112.infinityfree.com',
 
-'database' => 'if0_42339142_al_shaqi_glass',
+'database' => 'if0_42339848_al_shaqi_glass',
 
-'username' => 'if0_42339142',
+'username' => 'if0_42339848',
 
-'password' => 'HxNzIufZxi',
+'password' => 'PnX1Uuigoy',
 
 'charset' => 'utf8mb4'
 

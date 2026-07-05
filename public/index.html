@@ -1,6 +1,7 @@
-<?php
+
+
 // بدء الجلسة
-session_start();
+/*session_start();
 
 // تحميل الإعدادات الأساسية
 require_once __DIR__ . '/../app/core/Database.php';
@@ -23,6 +24,7 @@ $page_title = $settings['meta_title'] ?? 'الماسة للزجاج السكري
 $page_description = $settings['meta_description'] ?? 'أفضل شركة زجاج سكريت في الرياض - تركيب واجهات، درابزين، شورات، قصور وفيلات - خبرة ١٠ سنوات وأكثر من ١٥٠ مشروعاً منفذاً';
 $page_keywords = $settings['meta_keywords'] ?? 'زجاج سكريت الرياض، تركيب زجاج، واجهات زجاجية، درابزين زجاج، شورات زجاجية، قصور، فلل، الرياض';
 ?>
+*/
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -229,7 +231,7 @@ $page_keywords = $settings['meta_keywords'] ?? 'زجاج سكريت الرياض
                 </ul>
             </div>
             <div class="about-image" data-aos="fade-left">
-                <img src="assets/images/about.jpg" alt="عن الماسة للزجاج السكريت" onerror="this.src='assets/images/placeholder.jpg'">
+                <img src="assets/images/about.JPG" alt="عن الماسة للزجاج السكريت" onerror="this.src='assets/images/placeholder.JPG'">
             </div>
         </div>
     </div>
@@ -847,7 +849,7 @@ $page_keywords = $settings['meta_keywords'] ?? 'زجاج سكريت الرياض
 <script>
     function loadGoogleMaps() {
         const script = document.createElement('script');
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&language=ar&callback=initMap';
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDH9FY7EHzTjmRAxoVUEpsWb0e7vJx2mkY&language=ar&callback=initMap';
         script.async = true;
         script.defer = true;
         document.head.appendChild(script);

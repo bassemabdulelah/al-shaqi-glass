@@ -27,7 +27,7 @@ class Setting {
     }
     
     public function getSiteName() {
-        return $this->get('site_name') ?? 'الشاقي للزجاج السكريت';
+        return $this->get('site_name') ?? 'الماسة للزجاج السكريت';
     }
     
     public function getPhone() {

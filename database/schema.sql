@@ -12,7 +12,7 @@ CREATE TABLE users (
 -- جدول الإعدادات العامة
 CREATE TABLE settings (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    site_name VARCHAR(100) DEFAULT 'الشاقي للزجاج السكريت',
+    site_name VARCHAR(100) DEFAULT 'الماسة للزجاج السكريت',
     site_logo VARCHAR(255),
     site_favicon VARCHAR(255),
     phone VARCHAR(20),
@@ -166,7 +166,7 @@ INSERT INTO users (name, email, password, role) VALUES
 
 -- إدخال بيانات أولية (الإعدادات)
 INSERT INTO settings (site_name, phone, whatsapp, email, address, working_hours, meta_description, meta_keywords) VALUES (
-    'الشاقي للزجاج السكريت',
+    'الماسة للزجاج السكريت',
     '+966 50 000 0000',
     '+966 50 000 0000',
     'info@al-shaqi.com',
