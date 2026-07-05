@@ -1,0 +1,25 @@
+# منع عرض محتويات المجلدات
+Options -Indexes
+
+# توجيه كل الطلبات إلى مجلد public
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L,QSA]
+
+# منع الوصول إلى الملفات الحساسة
+<FilesMatch "\.(env|log|json|sql|md|ini)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# حماية مجلد app
+<Directory "app">
+    Order allow,deny
+    Deny from all
+</Directory>
+
+# حماية مجلد database
+<Directory "database">
+    Order allow,deny
+    Deny from all
+</Directory>
