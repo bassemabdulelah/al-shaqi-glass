@@ -117,9 +117,940 @@ img {
     transition: var(--transition);
 }
 
+
+
 .btn-outline:hover {
     background: var(--secondary);
     color: var(--white);
+}
+.float-btn.location {
+    background: #EA4335;
+    color: #fff;
+}
+
+/* ============================================
+   أنواع الزجاج - عرض الجميع
+   ============================================ */
+
+/* زر عرض التفاصيل */
+.type-detail-btn {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    border-radius: 50px;
+    font-family: var(--font-arabic);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.type-detail-btn:hover {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+/* مواصفات النوع */
+.type-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.type-specs span {
+    display: block;
+}
+
+/* زر عرض الجميع */
+.types-view-all {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.types-count {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ====== الشبكة الكاملة (عند الضغط) ====== */
+.types-full-grid {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid #E5E7EB;
+    animation: fadeSlideIn 0.5s ease;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.types-full-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.types-full-header h3 {
+    font-family: var(--font-arabic);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.types-full-header h3::before {
+    content: '📋 ';
+}
+
+.close-types {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #FEE2E2;
+    color: #EF4444;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-types:hover {
+    background: #EF4444;
+    color: var(--white);
+    transform: rotate(90deg);
+}
+
+/* ====== عنصر النوع الكامل ====== */
+.type-full-item {
+    margin-bottom: 50px;
+    padding: 30px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.type-full-item:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.type-full-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* عكس الترتيب (صورة يسار - نص يمين) */
+.type-full-item.reverse .type-full-content {
+    direction: rtl;
+}
+
+.type-full-item.reverse .type-full-content .type-full-text {
+    direction: rtl;
+}
+
+.type-full-item.reverse .type-full-content .type-full-image {
+    direction: ltr;
+}
+
+/* ====== النص ====== */
+.type-full-text {
+    padding: 10px 0;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 4px 16px;
+    background: linear-gradient(135deg, var(--secondary), #0098B8);
+    color: var(--white);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.type-full-text h3 {
+    font-family: var(--font-arabic);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.type-full-desc {
+    color: #4B5563;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+/* ====== المواصفات ====== */
+.type-full-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: var(--light);
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.spec-item i {
+    color: var(--secondary);
+    font-size: 1rem;
+    width: 20px;
+}
+
+.spec-item strong {
+    color: var(--primary);
+}
+
+/* ====== الاستخدامات ====== */
+.type-full-uses {
+    margin-bottom: 20px;
+}
+
+.type-full-uses strong {
+    display: block;
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.type-full-uses span {
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(0, 180, 216, 0.08);
+    color: var(--secondary);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    margin: 0 4px 6px 0;
+    font-weight: 500;
+}
+
+/* ====== الصورة ====== */
+.type-full-image {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    aspect-ratio: 4/3;
+}
+
+.type-full-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.type-full-item:hover .type-full-image img {
+    transform: scale(1.03);
+}
+
+.type-image-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ====== زر الطلب ====== */
+.type-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+}
+
+/* ====== ملاحظة أخيرة ====== */
+.types-full-note {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #F0F7FF, #E8EDFE);
+    border-radius: var(--radius);
+    margin-top: 30px;
+    border-right: 4px solid var(--secondary);
+}
+
+.types-full-note i {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    flex-shrink: 0;
+}
+
+.types-full-note p {
+    color: #4B5563;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ============================================
+   التجاوب
+   ============================================ */
+
+@media (max-width: 992px) {
+    .type-full-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .type-full-item.reverse .type-full-content {
+        direction: ltr;
+    }
+    
+    .type-full-item.reverse .type-full-content .type-full-text {
+        direction: rtl;
+    }
+    
+    .type-full-item.reverse .type-full-content .type-full-image {
+        direction: ltr;
+    }
+    
+    .type-full-specs {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .type-full-content {
+        gap: 20px;
+    }
+    
+    .type-full-text h3 {
+        font-size: 1.4rem;
+    }
+    
+    .type-full-specs {
+        grid-template-columns: 1fr;
+    }
+    
+    .type-full-item {
+        padding: 20px;
+    }
+    
+    .types-full-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .type-image-badge {
+        top: 10px;
+        right: 10px;
+        font-size: 0.7rem;
+        padding: 4px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .type-full-item {
+        padding: 15px;
+    }
+    
+    .type-full-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    .type-full-desc {
+        font-size: 0.9rem;
+    }
+    
+    .spec-item {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    .types-full-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .type-full-uses span {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+    }
+}
+/* ============================================
+   أنواع الزجاج - عرض الجميع (النسخة النهائية)
+   ============================================ */
+
+/* ====== زر عرض التفاصيل ====== */
+.type-detail-btn {
+    margin-top: 12px;
+    padding: 8px 20px;
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    border-radius: 50px;
+    font-family: var(--font-arabic);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.type-detail-btn:hover {
+    background: var(--secondary);
+    color: var(--white);
+    transform: translateX(-5px);
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.3);
+}
+
+/* ====== مواصفات النوع ====== */
+.type-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.type-specs span {
+    display: block;
+}
+
+/* ====== زر عرض الجميع ====== */
+.types-view-all {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.types-count {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ============================================
+   الشبكة الكاملة (عند الضغط على عرض الجميع)
+   ============================================ */
+.types-full-grid {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid #E5E7EB;
+    animation: fadeSlideIn 0.6s ease;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== رأس القسم الكامل ====== */
+.types-full-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.types-full-header h3 {
+    font-family: var(--font-arabic);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.types-full-header h3::before {
+    content: '📋 ';
+}
+
+.close-types {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: #FEE2E2;
+    color: #EF4444;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-types:hover {
+    background: #EF4444;
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+}
+
+/* ============================================
+   عنصر النوع الكامل (الصورة + التفاصيل)
+   ============================================ */
+.type-full-item {
+    margin-bottom: 50px;
+    padding: 35px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.4s;
+    border: 1px solid transparent;
+}
+
+.type-full-item:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+}
+
+/* ====== الترتيب الأساسي: صورة يسار + تفاصيل يمين ====== */
+.type-full-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* ====== الصورة ====== */
+.type-full-image {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 4/3;
+    order: 1;
+}
+
+.type-full-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s;
+}
+
+.type-full-item:hover .type-full-image img {
+    transform: scale(1.05);
+}
+
+.type-image-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ====== التفاصيل (النص) ====== */
+.type-full-text {
+    padding: 10px 0;
+    order: 2;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 4px 18px;
+    background: linear-gradient(135deg, var(--secondary), #0098B8);
+    color: white;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.type-full-text h3 {
+    font-family: var(--font-arabic);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 14px;
+}
+
+.type-full-desc {
+    color: #4B5563;
+    line-height: 2;
+    margin-bottom: 22px;
+    font-size: 1.05rem;
+}
+
+/* ====== المواصفات ====== */
+.type-full-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: var(--light);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.spec-item:hover {
+    background: #E8EDFE;
+    transform: translateX(-3px);
+}
+
+.spec-item i {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    width: 22px;
+    text-align: center;
+}
+
+.spec-item strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* ====== الاستخدامات ====== */
+.type-full-uses {
+    margin-bottom: 24px;
+}
+
+.type-full-uses strong {
+    display: block;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.type-full-uses span {
+    display: inline-block;
+    padding: 5px 16px;
+    background: rgba(0, 180, 216, 0.08);
+    color: var(--secondary);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    margin: 0 4px 6px 0;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.type-full-uses span:hover {
+    background: var(--secondary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ====== زر طلب الاستشارة ====== */
+.type-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 1rem;
+}
+
+.type-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 180, 216, 0.4);
+}
+
+/* ============================================
+   الترتيب العكسي: صورة يمين + تفاصيل يسار
+   ============================================ */
+.type-full-item.reverse .type-full-content {
+    direction: rtl;
+}
+
+.type-full-item.reverse .type-full-content .type-full-text {
+    direction: rtl;
+    order: 1;
+}
+
+.type-full-item.reverse .type-full-content .type-full-image {
+    direction: ltr;
+    order: 2;
+}
+
+/* إصلاح النصوص في الوضع العكسي */
+.type-full-item.reverse .type-full-content .type-full-text * {
+    text-align: right;
+}
+
+.type-full-item.reverse .type-full-content .type-full-image {
+    text-align: left;
+}
+
+/* ====== ملاحظة أخيرة ====== */
+.types-full-note {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 30px;
+    background: linear-gradient(135deg, #F0F7FF, #E8EDFE);
+    border-radius: var(--radius);
+    margin-top: 40px;
+    border-right: 4px solid var(--secondary);
+}
+
+.types-full-note i {
+    font-size: 2rem;
+    color: var(--secondary);
+    flex-shrink: 0;
+}
+
+.types-full-note p {
+    color: #4B5563;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* ============================================
+   التجاوب مع جميع الشاشات
+   ============================================ */
+
+/* شاشات كبيرة (لابتوب) */
+@media (max-width: 1024px) {
+    .type-full-content {
+        gap: 35px;
+    }
+    
+    .type-full-text h3 {
+        font-size: 1.7rem;
+    }
+}
+
+/* شاشات متوسطة (تابلت) */
+@media (max-width: 992px) {
+    .type-full-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* إلغاء الترتيب العكسي في التابلت */
+    .type-full-item.reverse .type-full-content {
+        direction: ltr;
+    }
+    
+    .type-full-item.reverse .type-full-content .type-full-text {
+        direction: rtl;
+        order: 1;
+    }
+    
+    .type-full-item.reverse .type-full-content .type-full-image {
+        direction: ltr;
+        order: 0;
+    }
+    
+    .type-full-image {
+        aspect-ratio: 16/9;
+    }
+    
+    .type-full-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .type-full-specs {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* شاشات صغيرة (جوال كبير) */
+@media (max-width: 768px) {
+    .type-full-item {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .type-full-content {
+        gap: 20px;
+    }
+    
+    .type-full-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .type-full-desc {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+    
+    .type-full-specs {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .spec-item {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+    }
+    
+    .type-full-uses span {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+    }
+    
+    .types-full-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .types-full-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .type-image-badge {
+        top: 10px;
+        right: 10px;
+        font-size: 0.7rem;
+        padding: 4px 12px;
+    }
+    
+    .type-cta {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .types-full-note {
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 20px;
+        gap: 10px;
+    }
+    
+    .types-full-note i {
+        font-size: 1.6rem;
+    }
+}
+
+/* شاشات صغيرة جداً (جوال صغير) */
+@media (max-width: 480px) {
+    .type-full-item {
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .type-full-text h3 {
+        font-size: 1.1rem;
+    }
+    
+    .type-full-desc {
+        font-size: 0.85rem;
+    }
+    
+    .type-badge {
+        font-size: 0.65rem;
+        padding: 3px 14px;
+    }
+    
+    .spec-item {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+    
+    .spec-item i {
+        font-size: 0.9rem;
+        width: 18px;
+    }
+    
+    .type-full-uses strong {
+        font-size: 0.85rem;
+    }
+    
+    .type-full-uses span {
+        font-size: 0.65rem;
+        padding: 3px 10px;
+    }
+    
+    .types-full-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .close-types {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+    
+    .types-full-note p {
+        font-size: 0.85rem;
+    }
+    
+    .type-cta {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ====== تحسين إضافي لزر عرض التفاصيل ====== */
+.type-detail-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.type-detail-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.type-detail-btn:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+.float-btn.location:hover {
+    background: #d93025;
 }
 
 /* ============================================

@@ -311,6 +311,162 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
+// التحكم في عرض جميع أنواع الزجاج
+// ============================================
+
+let isAllTypesVisible = false;
+
+/**
+ * دالة عرض/إخفاء جميع الأنواع
+ */
+function toggleAllTypes() {
+    const fullGrid = document.getElementById('typesFullGrid');
+    const viewAllBtn = document.getElementById('viewAllTypes');
+    
+    if (!fullGrid) return;
+    
+    isAllTypesVisible = !isAllTypesVisible;
+    
+    if (isAllTypesVisible) {
+        // إظهار القسم الكامل
+        fullGrid.style.display = 'block';
+        fullGrid.style.animation = 'fadeSlideIn 0.6s ease';
+        viewAllBtn.innerHTML = `
+            <i class="fas fa-times"></i>
+            إخفاء الأنواع
+        `;
+        viewAllBtn.style.background = 'linear-gradient(135deg, #EF4444, #DC2626)';
+        
+        // تمرير إلى القسم بعد الظهور
+        setTimeout(() => {
+            fullGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    } else {
+        // إخفاء القسم الكامل
+        fullGrid.style.display = 'none';
+        viewAllBtn.innerHTML = `
+            <i class="fas fa-th-list"></i>
+            عرض جميع الأنواع
+            <span class="types-count">(6)</span>
+        `;
+        viewAllBtn.style.background = 'linear-gradient(135deg, var(--secondary), #0098B8)';
+    }
+}
+
+/**
+ * دالة عرض تفاصيل نوع معين
+ * @param {string} typeId - معرف النوع (clear, frosted, railing, reflective, colored, security)
+ */
+function showTypeDetail(typeId) {
+    // تعريف الأنواع مع المعرفات
+    const typeMap = {
+        'clear': 'type-clear',
+        'frosted': 'type-frosted',
+        'railing': 'type-railing',
+        'reflective': 'type-reflective',
+        'colored': 'type-colored',
+        'security': 'type-security'
+    };
+    
+    // إذا كان القسم الكامل مخفياً، أظهره
+    if (!isAllTypesVisible) {
+        toggleAllTypes();
+    }
+    
+    // بعد ظهور القسم، انتقل إلى النوع المطلوب
+    setTimeout(() => {
+        const targetId = typeMap[typeId];
+        if (!targetId) return;
+        
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+        
+        // إزالة أي تمييز سابق من جميع العناصر
+        document.querySelectorAll('.type-full-item').forEach(item => {
+            item.style.border = 'none';
+            item.style.boxShadow = 'var(--shadow)';
+            item.style.transform = 'scale(1)';
+        });
+        
+        // تمرير سلس إلى العنصر المطلوب
+        targetElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'center'
+        });
+        
+        // إضافة تأثير تمييز قوي
+        targetElement.style.border = '4px solid var(--secondary)';
+        targetElement.style.boxShadow = '0 20px 60px rgba(0, 180, 216, 0.4)';
+        targetElement.style.transform = 'scale(1.02)';
+        targetElement.style.transition = 'all 0.5s ease';
+        
+        // إزالة التمييز بعد 3 ثواني
+        setTimeout(() => {
+            targetElement.style.border = 'none';
+            targetElement.style.boxShadow = 'var(--shadow)';
+            targetElement.style.transform = 'scale(1)';
+        }, 3000);
+        
+        console.log(`✅ تم التمرير إلى: ${targetId}`);
+        
+    }, 800);
+}
+
+/**
+ * دالة إغلاق القسم الكامل
+ */
+function closeTypes() {
+    const fullGrid = document.getElementById('typesFullGrid');
+    const viewAllBtn = document.getElementById('viewAllTypes');
+    
+    if (!fullGrid) return;
+    
+    fullGrid.style.display = 'none';
+    isAllTypesVisible = false;
+    viewAllBtn.innerHTML = `
+        <i class="fas fa-th-list"></i>
+        عرض جميع الأنواع
+        <span class="types-count">(6)</span>
+    `;
+    viewAllBtn.style.background = 'linear-gradient(135deg, var(--secondary), #0098B8)';
+    
+    // تمرير إلى بداية القسم
+    const section = document.querySelector('.glass-types');
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+/**
+ * تفعيل جميع الأزرار بعد تحميل الصفحة
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('✅ تم تحميل قسم أنواع الزجاج');
+    
+    // ====== تأكد من وجود الأزرار ======
+    const viewAllBtn = document.getElementById('viewAllTypes');
+    if (viewAllBtn) {
+        console.log('✅ زر عرض الجميع موجود');
+    }
+    
+    // ====== تأكد من وجود أزرار التفاصيل ======
+    const detailBtns = document.querySelectorAll('.type-detail-btn');
+    console.log(`✅ تم العثور على ${detailBtns.length} زر تفاصيل`);
+    
+    // ====== إضافة مستمعين لأزرار التفاصيل (إضافة أمان) ======
+    detailBtns.forEach(btn => {
+        // التأكد من أن onclick يعمل
+        const onclickAttr = btn.getAttribute('onclick');
+        if (!onclickAttr) {
+            console.warn('⚠️ زر بدون onclick:', btn);
+        }
+    });
+});
+
+console.log('✅ جميع أزرار أنواع الزجاج جاهزة للعمل!');
+
+// ============================================
 // تفعيل الروابط في شريط التنقل حسب الموقع
 // ============================================
 const sections = document.querySelectorAll('section[id]');
